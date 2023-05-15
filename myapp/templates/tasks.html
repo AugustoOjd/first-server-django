@@ -1,0 +1,28 @@
+
+{# agregando layouts #}
+
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<h1>Tasks</h1>
+
+<div>
+{% for task in task %}
+<h2>{% if task.done == False %} &#10060; {% else %} &#9989; {% endif %} {{task.title}}</h2>
+
+{% if task.done == False %}
+<p style="color: red;">Tarea no realizada</p>
+{% else%}
+<p style="color: green;">Tarea realizada</p>
+{% endif %}
+
+<p>{{task.description}}</p>
+<p style="color: brown; font-weight: bold;">Project: {{task.project}}</p>
+<button>Delete</button>
+<button>Update</button>
+<button>&#9989; Done</button>
+{% endfor %}
+</div>
+
+{% endblock %}

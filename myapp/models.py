@@ -15,6 +15,7 @@ class Task(models.Model):
     # on_delete indica que hacer si se borra una tabla padre, en modelo cascada
     # cuando es foreignkey crear _id por default, entonces solo seria project
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    done = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title + ' - ' + self.project.name

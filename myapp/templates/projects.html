@@ -9,7 +9,11 @@
 
 {% for project in projects %}
     <ul>
-        <li>{{project.name}}</li>
+        <li>
+            <a href="{% url 'project_detail' project.id %}">
+                {{project.name}}
+            </a>
+        </li>
     </ul>
 {% endfor %}
 
